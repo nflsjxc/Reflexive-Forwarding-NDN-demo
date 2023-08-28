@@ -1,0 +1,4 @@
+python-igraph
+setuptools
+tqdm
+joblib

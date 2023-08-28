@@ -1,0 +1,21 @@
+name: Docs
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      skip-deploy:
+        description: 'Skip deployment?'
+        required: true
+        type: boolean
+
+permissions: {}
+
+jobs:
+  html:
+    uses: named-data/actions/.github/workflows/docs-html.yml@v1
+    with:
+      # Deploy only the master branch and release tags
+      deploy: ${{ !inputs.skip-deploy && (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/ndn-cxx-')) }}
+    secrets: inherit
+  man:
+    uses: named-data/actions/.github/workflows/docs-man.yml@v1

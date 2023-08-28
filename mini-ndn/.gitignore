@@ -1,0 +1,18 @@
+# Python
+build
+dist
+Mini_NDN.egg-info
+*.pyc
+
+# Docs
+docs/html
+docs/latex
+docs/_build
+
+# Misc
+.DS_Store
+dl
+*.apconf
+
+# Vagrant
+.vagrant

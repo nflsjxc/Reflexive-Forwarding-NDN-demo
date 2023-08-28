@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '*.conf.sample*'
+      - '*.md'
+      - '.mailmap'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  Ubuntu:
+    uses: named-data/actions/.github/workflows/jenkins-script-ubuntu.yml@v1
+    with:
+      submodules: true
+  macOS:
+    uses: named-data/actions/.github/workflows/jenkins-script-macos.yml@v1
+    with:
+      submodules: true

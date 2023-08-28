@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+case $(uname) in
+    Linux)
+        if [[ -e /etc/os-release ]]; then
+            source /etc/os-release
+        else
+            source /usr/lib/os-release
+        fi
+        export ID VERSION_ID
+        export ID_LIKE="${ID} ${ID_LIKE} linux"
+        export PATH="${HOME}/.local/bin${PATH:+:}${PATH}"
+        ;;
+    Darwin)
+        # Emulate a subset of os-release(5)
+        export ID=macos
+        export VERSION_ID=$(sw_vers -productVersion)
+        export PATH="/usr/local/bin${PATH:+:}${PATH}"
+        if [[ -x /opt/homebrew/bin/brew ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        elif [[ -x /usr/local/bin/brew ]]; then
+            eval "$(/usr/local/bin/brew shellenv)"
+        fi
+        ;;
+esac
+
+export CACHE_DIR=${CACHE_DIR:-/tmp}
+
+if [[ $JOB_NAME == *"code-coverage" ]]; then
+    export DISABLE_ASAN=yes
+    export DISABLE_HEADERS_CHECK=yes
+fi
+
+# https://reproducible-builds.org/docs/source-date-epoch/
+export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+
+for file in .jenkins.d/*; do
+    [[ -f $file && -x $file ]] || continue
+
+    if [[ -n $GITHUB_ACTIONS ]]; then
+        label=$(basename "$file" | sed -E 's/[[:digit:]]+-(.*)\..*/\1/')
+        echo "::group::${label}"
+    fi
+
+    echo "\$ $file"
+    "$file"
+
+    if [[ -n $GITHUB_ACTIONS ]]; then
+        echo "::endgroup::"
+    fi
+done
