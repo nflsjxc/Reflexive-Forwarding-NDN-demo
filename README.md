@@ -10,10 +10,8 @@ While these can be accomplished using independent Interest-Data exchanges by rev
 
 ## Installation
 + The demo is developed based on Mini-NDN version 0.6.0  
-+ Mini-NDN stores NDN software in `/mini-ndn/dl`, I modified NFD and ndn-cxx to implement Reflexive Forwarding.   
-When installing please use `./install.sh --source` to install modified NDN software from source code  
-+ If not working, you could try reinstall modified ndn-cxx and NFD in `/Mods` after you install mini-ndn.
-
++ Mini-NDN stores NDN software source code in `/mini-ndn/dl`. When installing please use `./install.sh --source` to install NDN software from source code.
++ After mini-ndn is installed, install modified ndn-cxx and NFD in `/Mods` to overwrite orignial ndn-cxx and NFD.
 ## Experiments
 The experiment code is stored in `/Experiments`  
 To start an experiment,
