@@ -6,7 +6,9 @@ A demo for draft-oran-icnrg-reflexive-forwarding-05
 ## What is reflexive forwarding?
 Current Information-Centric Networking protocols such as CCNx and NDN have a wide range of useful applications in content retrieval and other scenarios that depend only on a robust two-way exchange in the form of a request and response (represented by an Interest-Data exchange in the case of the two protocols noted above). A number of important applications however, require placing large amounts of data in the Interest message, and/or more than one two-way handshake. 
 
-While these can be accomplished using independent Interest-Data exchanges by reversing the roles of consumer and producer, such approaches can be both clumsy for applications and problematic from a state management, congestion control, or security standpoint. This specification proposes a Reflexive Forwarding extension to the CCNx and NDN protocol architectures that eliminates the problems inherent in using independent Interest-Data exchanges for such applications. It updates RFC8569 and RFC8609.
+While these can be accomplished using independent Interest-Data exchanges by reversing the roles of consumer and producer, such approaches can be both clumsy for applications and problematic from a state management, congestion control, or security standpoint.   
+
+Reflexive Forwarding is a proposed extension to the CCNx and NDN protocol architectures that eliminates the problems inherent in using independent Interest-Data exchanges for such applications. This project is an implementation of Reflexive Forwarding for NFD (based on ndn-cxx).
 
 ## Installation
 + The demo is developed based on Mini-NDN version 0.6.0  
