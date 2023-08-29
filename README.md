@@ -95,8 +95,8 @@ During the procedure, the consumer remains anonymous to the producer.
 
  Currently the two types of Interests are identified by the Reflexive Name value, if RN=9999, then it is the Reflexive Interest from Producer to Consumer.  Maybe we can try to merge this in the **pit-tokens** in the future.
 
-### License
+## License
 See [COPYING.md](./COPYING.md)
 
- ### Contributor
+ ## Contributor
  Xinchen Jin, Research Assistant of Professor Dirk Kutscher at HKUST(GZ)
