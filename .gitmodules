@@ -1,0 +1,3 @@
+[submodule "mini-ndn"]
+	path = mini-ndn
+	url = https://github.com/named-data/mini-ndn.git
