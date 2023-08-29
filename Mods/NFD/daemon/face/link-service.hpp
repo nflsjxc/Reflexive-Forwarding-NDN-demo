@@ -234,7 +234,6 @@ LinkService::receivePacket(const Block& packet, const EndpointId& endpoint)
 inline void
 LinkService::sendPacket(const Block& packet)
 {
-  // std::cerr<<"[Temp DEBUG] linkservice::sendPacket: " << m_transport->getLinkService()<<"\n";
   m_transport->send(packet);
 }
 

@@ -160,7 +160,7 @@ NameTree::findExactMatch(const Name& name, size_t prefixLen) const
 Entry*
 NameTree::findLongestPrefixMatch(const Name& name, const EntrySelector& entrySelector) const
 {
-  NFD_LOG_DEBUG("name tree findLongestPrefixMatch(" << name );
+  // NFD_LOG_DEBUG("name tree findLongestPrefixMatch(" << name );
   size_t depth = std::min(name.size(), getMaxDepth());
   HashSequence hashes = computeHashes(name, depth);
 
@@ -170,7 +170,7 @@ NameTree::findLongestPrefixMatch(const Name& name, const EntrySelector& entrySel
       return &node->entry;
     }
   }
-  NFD_LOG_DEBUG("findLongestPrefixMatch failed");
+  // NFD_LOG_DEBUG("findLongestPrefixMatch failed");
   return nullptr;
 }
 

@@ -64,7 +64,6 @@ std::pair<shared_ptr<Entry>, bool>
 Pit::findOrInsert(const Interest& interest, bool allowInsert)
 {
   // determine which NameTree entry should the PIT entry be attached onto
-  // std::cerr<<"PIT: findOrInsert: interest= "<< interest;
   NFD_LOG_DEBUG("PIT: findOrInsert: interest= "<< interest);
   const Name& name = interest.getName();
 

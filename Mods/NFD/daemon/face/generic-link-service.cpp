@@ -108,8 +108,6 @@ GenericLinkService::sendLpPacket(lp::Packet&& pkt)
     NFD_LOG_FACE_WARN("attempted to send packet over MTU limit");
     return;
   }
-
-  // NFD_LOG_DEBUG("SendlpPacket");
   this->sendPacket(block);
 }
 
