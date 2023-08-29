@@ -36,8 +36,6 @@ if __name__ == '__main__':
     info('Starting nfd and nlsr on nodes \n')
     nfds_host = AppManager(ndn, ndn.net.hosts, Nfd, logLevel='DEBUG')
     nlsrs_host = AppManager(ndn, ndn.net.hosts, Nlsr, logLevel='DEBUG')
-    # nfds_switch = AppManager(ndn, ndn.net.switches, Nfd, logLevel='DEBUG')
-    # nlsrs_switch = AppManager(ndn, ndn.net.switches, Nfd, logLevel='DEBUG')
     sleep(5)
 
     # Default topology is used in this experiment "/topologies/default-topology.conf"
